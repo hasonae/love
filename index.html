@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بتحبني؟ ❤️</title>
+<meta name="description" content="اختبار حب صغير... ونتيجته غير متوقعة 😏">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap');
+
+:root{
+  --pink:#ff3f78;
+  --rose:#ff6f9a;
+  --deep:#170b16;
+  --cream:#fff7fa;
+  --glass:rgba(255,255,255,.12);
+  --line:rgba(255,255,255,.22);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Cairo,Arial,sans-serif}
+body{
+  overflow:hidden;
+  color:white;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(255,79,133,.28),transparent 28%),
+    radial-gradient(circle at 85% 80%,rgba(185,45,100,.25),transparent 30%),
+    linear-gradient(135deg,#160914,#3b1029 48%,#120811);
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;opacity:.14;
+  background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.15'%3E%3Cpath d='M40[...]
+}
+.app{height:100vh;display:grid;place-items:center;padding:20px;position:relative}
+.card{
+  width:min(720px,100%);
+  min-height:min(720px,calc(100vh - 40px));
+  border:1px solid var(--line);
+  border-radius:36px;
+  background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.045));
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  box-shadow:0 30px 90px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.18);
+  overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+}
+.top{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:24px 28px 10px;direction:ltr
+}
+.logo{font-weight:900;font-size:18px;letter-spacing:-.5px}
+.logo span{color:#ff8eac}
+.step{font-size:12px;opacity:.65;background:rgba(255,255,255,.08);padding:8px 12px;border-radius:999px}
+.progress{height:4px;margin:0 28px;background:rgba(255,255,255,.09);border-radius:9px;overflow:hidden}
+.progress i{display:block;height:100%;width:50%;background:linear-gradient(90deg,#ff3d78,#ff9ab7);border-radius:9px;transition:.5s}
+.screen{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  padding:34px;position:relative;
+}
+.question{text-align:center;max-width:590px;animation:enter .65s ease}
+.eyebrow{font-size:13px;color:#ffabc2;font-weight:700;letter-spacing:2px;margin-bottom:12px}
+h1{
+  font-family:"Playfair Display",serif;
+  direction:ltr;
+  font-size:clamp(48px,9vw,86px);
+  line-height:1;margin:0 0 24px;
+  text-shadow:0 12px 35px rgba(255,40,100,.2);
+}
+.ar-question{font-size:clamp(27px,5vw,46px);font-weight:900;line-height:1.25;margin:0 0 38px}
+.heart-main{
+  width:86px;height:86px;margin:0 auto 25px;display:grid;place-items:center;
+  border-radius:28px;background:rgba(255,71,124,.13);
+  border:1px solid rgba(255,130,160,.28);
+  box-shadow:0 0 55px rgba(255,43,111,.2);
+  font-size:42px;animation:pulse 1.8s infinite;
+}
+.buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+button{
+  border:0;color:white;font:800 17px Cairo;cursor:pointer;
+  min-width:160px;padding:15px 25px;border-radius:18px;
+  transition:.22s;position:relative;overflow:hidden;
+}
+.yes{background:linear-gradient(135deg,#ff3f78,#ff6b98);box-shadow:0 12px 30px rgba(255,53,115,.28)}
+.no{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18)}
+button:hover{transform:translateY(-4px) scale(1.02)}
+button:active{transform:scale(.97)}
+.hint{font-size:12px;opacity:.45;margin-top:20px}
+.final{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;text-align:center;animation:finalIn .8s cubic-bezier(.2,.9,.2,1)
+}
+.reveal{
+  width:min(620px,100%);border-radius:24px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.3);
+  box-shadow:0 20px 70px rgba(0,0,0,.5),0 0 70px rgba(255,42,111,.18);
+  transform:rotate(-1deg);
+}
+.reveal img{display:block;width:100%;height:auto}
+.final-text{
+  margin-top:25px;font-size:clamp(28px,6vw,48px);font-weight:900;
+  color:#fff;line-height:1.25;text-shadow:0 5px 25px rgba(255,40,100,.4)
+}
+.final-text span{color:#ff86aa}
+.restart{
+  margin-top:18px;min-width:130px;padding:10px 18px;font-size:13px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)
+}
+.floaters{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
+.float-heart{
+  position:absolute;bottom:-60px;font-size:var(--size);
+  animation:floatUp var(--dur) linear forwards;
+  left:var(--left);filter:drop-shadow(0 5px 15px rgba(255,40,100,.4))
+}
+.burst{
+  position:fixed;left:50%;top:50%;z-index:20;pointer-events:none;
+  animation:burst .9s ease-out forwards
+}
+.burst span{position:absolute;font-size:var(--s);transform:rotate(var(--r));animation:fly .9s ease-out forwards}
+.flash{position:fixed;inset:0;background:white;z-index:19;opacity:0;pointer-events:none}
+.flash.go{animation:flash .35s ease-out}
+.hidden{display:none!important}
+@keyframes enter{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes finalIn{from{opacity:0;transform:scale(.75) rotate(2deg)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+@keyframes flash{0%{opacity:0}20%{opacity:.9}100%{opacity:0}}
+@keyframes fly{from{transform:translate(-50%,-50%) rotate(0) scale(.4);opacity:1}to{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(var(--r)) scale(1.15);opacity:0}}
+@media(max-width:600px){
+ .card{min-height:calc(100vh - 24px);border-radius:28px}
+ .app{padding:12px}
+ .screen{padding:24px 18px}
+ .top{padding:20px 20px 10px}.progress{margin:0 20px}
+ button{width:100%}.buttons{width:min(300px,100%)}
+ .reveal{border-radius:18px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <main class="card">
+    <div class="top">
+      <div class="logo">بتحبني؟ <span>♥</span></div>
+      <div class="step" id="step">السؤال 1 / 2</div>
+    </div>
+    <div class="progress"><i id="bar"></i></div>
+    <section class="screen" id="screen">
+      <div class="question" id="q1">
+        <div class="heart-main">❤️</div>
+        <div class="eyebrow">THE MOST IMPORTANT QUESTION</div>
+        <h1>Do You Love me?</h1>
+        <div class="buttons">
+          <button class="yes" onclick="nextQuestion()">Yes, I do ❤️</button>
+        </div>
+        <div class="hint">الإجابة الوحيدة المقبولة حالياً 😌</div>
+      </div>
+
+      <div class="question hidden" id="q2">
+        <div class="heart-main">💘</div>
+        <div class="eyebrow">السؤال المصيري</div>
+        <div class="ar-question">بدك نطلع مشوار ؟</div>
+        <div class="buttons">
+          <button class="yes" onclick="reveal()">نعم ❤️</button>
+          <button class="no" onclick="reveal()">لا 💔</button>
+        </div>
+        <div class="hint">فكّر منيح... بس النتيجة محسومة 😂</div>
+      </div>
+
+      <div class="final hidden" id="final">
+        <div class="reveal">
+          <img src="data:image/jpeg;base64,/9j/4AASSkZYWABXQQAAAAAAAAAAAP/gABBKRklGAAEBAAABAAEAAP/iAihJQ0NfUFJPRklMRQABAQAAAhgAAAAABDAAAG1udHJSR0IgWFlaIAAAAAAAAAAAAAAAAGFjc3AAAAAAAAAAAAAAAAAAAAAA[...]
+        </div>
+        <div class="final-text">أدفع الفاتورة يا <span>عرص</span> ❤️</div>
+        <button class="restart" onclick="location.reload()">إعادة الاختبار ↻</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="floaters" id="floaters"></div>
+<div class="flash" id="flash"></div>
+
+<script>
+const q1=document.getElementById('q1');
+const q2=document.getElementById('q2');
+const final=document.getElementById('final');
+const bar=document.getElementById('bar');
+const step=document.getElementById('step');
+const screen=document.getElementById('screen');
+const floaters=document.getElementById('floaters');
+const flash=document.getElementById('flash');
+
+function nextQuestion(){
+  q1.classList.add('hidden');
+  q2.classList.remove('hidden');
+  bar.style.width='100%';
+  step.textContent='السؤال 2 / 2';
+  hearts(10);
+}
+
+function reveal(){
+  q2.classList.add('hidden');
+  final.classList.remove('hidden');
+  bar.style.width='100%';
+  step.textContent='النتيجة ❤️';
+  flash.classList.remove('go');
+  void flash.offsetWidth;
+  flash.classList.add('go');
+  burst();
+  setTimeout(()=>hearts(35),150);
+  setTimeout(()=>hearts(25),700);
+}
+
+function hearts(count){
+  for(let i=0;i<count;i++){
+    const h=document.createElement('div');
+    h.className='float-heart';
+    h.textContent=['❤️','💗','💖','💕','💘','♥'][Math.floor(Math.random()*6)];
+    h.style.setProperty('--size',(18+Math.random()*30)+'px');
+    h.style.setProperty('--dur',(3+Math.random()*4)+'s');
+    h.style.setProperty('--left',(Math.random()*100)+'vw');
+    h.style.animationDelay=(Math.random()*1.2)+'s';
+    floaters.appendChild(h);
+    setTimeout(()=>h.remove(),8000);
+  }
+}
+function burst(){
+  const b=document.createElement('div'); b.className='burst';
+  const symbols=['❤️','💗','💖','💕','💘','✨','😂','♥'];
+  for(let i=0;i<24;i++){
+    const s=document.createElement('span');
+    const angle=(Math.PI*2*i)/24;
+    const dist=130+Math.random()*260;
+    s.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    s.style.setProperty('--x',(Math.cos(angle)*dist)+'px');
+    s.style.setProperty('--y',(Math.sin(angle)*dist)+'px');
+    s.style.setProperty('--s',(16+Math.random()*24)+'px');
+    s.style.setProperty('--r',(Math.random()*120-60)+'deg');
+    b.appendChild(s);
+  }
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),1200);
+}
+hearts(7);
+</script>
+</body>
+</html>
